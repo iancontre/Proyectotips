@@ -34,7 +34,7 @@ function mostrarPerfilUser(){
                         <div class="card">
                             <h3>Modificar Datos de la cuenta</h3>
                             <p>Aquí podrás cambiar todos tus datos personales</p>
-                            <form class="form-horizontal" role="form" method="post" action="../../Controllers/admin/modificarPerfilAdmin.php" enctype="multipart/form-data">
+                            <form class="form-horizontal" role="form" method="post" action="../../Controllers/modificarPerfilUser.php" enctype="multipart/form-data">
                                 <input class="form-control" name="documento" type="hidden" value="'.$f['documento'].'">
                                 <div class="row">
                                     <div class="form-group col-md-6">
@@ -62,7 +62,7 @@ function mostrarPerfilUser(){
                     <div class="card">
                     <h3>Modifica tu contraseña</h3>
                      <p>Escribe aquí tu nueva contraseña</p>
-                    <form class="form-horizontal" role="form" method="post" action="../../Controllers/admin/modificarClaveAdmin.php" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" method="post" action="../../Controllers/modificarClave.php" enctype="multipart/form-data">
                         <input class="form-control" name="documento" type="hidden" value="'.$f['documento'].'">
                         <div class="row">
                             <div class="form-group col-md-6">
@@ -82,7 +82,7 @@ function mostrarPerfilUser(){
                     <div class="card">
                     <h3>Modifica tu foto de Perfil</h3>
                      <p>Aquí podrás seleccionar una nueva foto para tu perfil</p>
-                    <form class="form-horizontal" role="form" method="post" action="../../Controllers/admin/modificarFotoAdmin.php" enctype="multipart/form-data">
+                    <form class="form-horizontal" role="form" method="post" action="../../Controllers/modificarFoto.php" enctype="multipart/form-data">
                         <input class="form-control" name="documento" type="hidden" value="'.$f['documento'].'">
                         <div class="row">
                             <div class="form-group col-md-12">

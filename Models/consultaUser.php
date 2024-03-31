@@ -178,6 +178,65 @@ public function mostrarUserPerfil($documento){
 
     return $f;
 }
+
+public function actulizardatosPerfil($documento,$nombre,$telefono,$correo){
+    $f= null;
+    $objConexion = new Conexion();
+    $conexion = $objConexion -> get_conexion();
+    $actualizardatosperfil = "UPDATE  usuario SET nombre=:nombre, telefono=:telefono, correo=:correo WHERE documento=:documento";
+    $result = $conexion->prepare($actualizardatosperfil);
+    $result->bindParam(':documento', $documento);
+    $result->bindParam(':nombre', $nombre);
+    $result->bindParam(':telefono', $telefono);
+    $result->bindParam(':correo', $correo);
+    
+    if ($result->execute()) {
+        echo '<script>alert("¡Bien Hecho! se han actualizado tus datos personales del Perfil");</script>';
+        echo '<script>location.href="../Views/users/profile.php"</script>';
+    }else {
+        echo '<script>alert(" ¡Lo lamentamos! hay un Error al intentar actualizar tus datos personales");</script>';
+    }
+}
+
+public function modificarclave($documento,$contrasenaEncrip){
+    $objConexion = new Conexion();
+    $conexion = $objConexion -> get_conexion();
+    $actualizarclave= "UPDATE usuario SET contrasena=:contrasenaEncrip WHERE documento=:documento";
+    $result = $conexion ->prepare($actualizarclave);
+    $result-> bindParam(':documento', $documento);
+    $result-> bindParam (':contrasenaEncrip', $contrasenaEncrip);
+    if ($result -> execute()) {
+
+        echo '<script> alert("¡Bien hecho!, has modificado tu clave con exito"); </script>';
+        echo '<script> location.href="../Views/users/profile.php" </script>';
+        
+    }else {
+        echo '<script> alert("¡Lo lamento!, hay un error al modificar tu contraseña"); </script>';
+    }
+
+}
+public function modificarFoto($documento, $rutaFoto){
+    $objConexion = new Conexion();
+    $conexion = $objConexion -> get_conexion();
+    $actualizarFoto = "UPDATE usuario SET foto=:rutaFoto WHERE documento=:documento";
+    $result = $conexion ->prepare($actualizarFoto);
+    $result->bindParam(':documento',$documento);
+    $result ->bindParam(':rutaFoto', $rutaFoto);
+
+    if ($result-> execute()) {
+
+        echo '<script> alert("¡Bien hecho!, has modificado  tu foto de perfil"); </script>';
+        echo '<script> location.href="../Views/users/profile.php" </script>';
+
+        
+    } else {
+        echo '<script> alert("¡Lo lamento!, hay un error al modificar tu foto"); </script>';
+    }
+
+
+}
+
+
 }
  
 ?>

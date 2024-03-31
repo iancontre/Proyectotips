@@ -4,12 +4,12 @@ class ConsultaUser{
 
      //Sólo irán las consultas del Usuario, de lo contrarío deberá ubicarse en (consultarAdmin.php)
 
-    public function registrarUser($documento, $nombre,$telefono,$correo,$contrasenaEncrip, $id_rol){
+    public function registrarUser($documento, $nombre,$telefono,$correo,$contrasenaEncrip, $id_rol, $estado){
         $objconexion = new Conexion();
         $conexion = $objconexion -> get_conexion();
 
-        $insertarUser = "INSERT INTO usuario (documento, nombre, telefono,correo,contrasena,id_rol) 
-        VALUES(:documento,:nombre,:telefono,:correo,:contrasenaEncrip,:id_rol)";
+        $insertarUser = "INSERT INTO usuario (documento, nombre, telefono,correo,contrasena,id_rol, estado) 
+        VALUES(:documento,:nombre,:telefono,:correo,:contrasenaEncrip,:id_rol, :estado)";
 
         $result= $conexion-> prepare($insertarUser);
         $result->bindParam(":documento", $documento);
@@ -18,6 +18,7 @@ class ConsultaUser{
         $result->bindParam(":correo",$correo);
         $result->bindParam(":contrasenaEncrip",$contrasenaEncrip);
         $result->bindParam(":id_rol",$id_rol);
+        $result->bindParam(":estado", $estado);
 
         if ($result->execute()) {
             echo '<script>alert("Registro Exitoso");</script>';
@@ -39,6 +40,8 @@ class ConsultaUser{
         $resultado = $conexion->prepare($consultarUser);
         $resultado->bindParam(':correo', $correo);
         $resultado->execute();
+
+       
     
         if ($f = $resultado->fetch()) {
             // Verificar la contraseña
@@ -49,7 +52,7 @@ class ConsultaUser{
                 $_SESSION['id_rol'] = $f['id_rol'];
                 $_SESSION['correo'] = $f['correo'];
                 $_SESSION['autenticado'] = "SI";
-    
+               
                 // Manejar el rol del usuario
                 switch ($f['id_rol']) {
                     case '1':
@@ -61,8 +64,24 @@ class ConsultaUser{
                         echo '<script>location.href="../Views/vendedor/home.php"</script>';
                         break;
                     case '3':
-                        echo '<script>alert("Bienvenido Usuario");</script>';
-                        echo '<script>location.href="../Views/users/home.php"</script>';
+                        if ($f['estado'] == "primeravez") {
+                            echo '<script>alert("Bienvenido, has ingresado por primera vez, tendrás que hacer nuestro manual Interactivo");</script>';
+                            echo '<script>location.href="../Views/users/manualConsejo.html"</script>';
+
+                            $estado = "activo";
+                            $actualizarEstado = "UPDATE usuario SET estado=:estado WHERE documento = :documento";
+                            $resultado= $conexion->prepare($actualizarEstado);
+                            $resultado->bindParam(':estado', $estado);
+                            $resultado->bindParam(':documento', $f['documento']);
+                            $resultado->execute();
+                
+                        }else {
+                            
+                            echo '<script>alert("Bienvenido Usuario");</script>';
+                            echo '<script>location.href="../Views/users/home.php"</script>';
+                
+                        }
+                        
                         break;
                     default:
                         echo '<script>alert("Usted no pertenece a ningún rol, comuníquese con el Administrador");</script>';

@@ -7,7 +7,7 @@ function mostrarFotoAdmin() {
     $result = $objconsultas->verFotoAdmin();
 
     if ($result !== false && !empty($result)){
-        $rutafoto = $result['foto']; // Obtén la ruta de la foto del resultado de la consulta
+        $rutafoto = $result['foto']; 
         echo '
          
                  <img  src="' . $rutafoto . '"class="avatar img-circle" alt="avatar"

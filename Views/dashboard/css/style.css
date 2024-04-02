@@ -90,6 +90,10 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
+.textproductos{
+  font-weight: 500px ;
+}
+
 .card-subtitle {
   font-size: 12px;
   margin: 10px 0;
@@ -5524,4 +5528,283 @@ only screen and (min-resolution: 2dppx) {
   .retina-logo {
     display: inline-block !important;
   }
+}
+
+.botonAgregar {
+  background: #1DCA3B;
+  border: none;
+  width: 120px;
+  height: 40px;
+  float: right;
+  margin-bottom: 35px;
+  border-radius: 20px;
+  color: #fff;
+
+}
+#agrega{
+  text-align: center;
+  background: #1DCA3B;
+  border-radius: 20px;
+  border: none;
+  width: 30%;
+  height: 45px; 
+}
+ #productos{
+    margin-top: 5%;
+  }
+  .card-title{
+
+    color: black!important;
+
+  }
+  .card-text{
+    color: black!important;
+
+  }
+  .card{
+    border-radius: 10px;
+    margin-top: 2%;
+  }
+  .card-img-top{
+    width: 85%;
+    text-align:center;
+    
+  }
+  #tittle-pr{
+    margin-top: 5%;
+  }
+  .btn-danger{
+    background-color: #75bde0;
+    border-color:#75bde0;
+  }
+
+  .btn-danger:hover{
+ background-color: #f8d49b;
+ border-color: #f8d49b;
+  }
+
+
+.botonAgregar i{
+  color: #fff;
+  font-size: large;
+  margin: 0 10px;
+
+}
+
+.btn-info {
+  background-color: #f8d49b;
+  border-color: #f8d49b;
+  color: #000;
+}
+
+
+.btn-info:hover {
+  background: #f8d49b;
+  border-color: #f8d49b;
+  color: #000;
+  box-shadow: none;
+}
+.btn-secondary{
+  background-color: #f89b9b;
+  border-color: #f89b9b;
+  color: #000;
+  
+}
+.btn-secondary:hover{
+  background: #f89b9b;
+  border-color: #f89b9b;
+  color: #000;
+  box-shadow: none;
+
+}
+
+.modal-content {
+  border-radius: 15px;
+}
+.modifica{
+  background-color: #f8d49b ;
+}
+
+.contenedorimagen{
+  background-color: #000000;
+}
+
+.cambiarcolor td{
+  background: #fff;
+  
+}
+
+.textproductos{
+  float: right;
+}
+.icon-name {
+  color: #75BDE0;
+}
+
+/*  Opensans
+--------------- */
+.card-body {
+  padding: 0;
+}
+
+.card {
+  background-color: #fff;
+  margin: 7.5px 0;
+  padding: 20px;
+  border: 3px solid white;
+  border-radius: 11px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+#modal-header{
+  text-align: center;
+}
+
+
+.card-subtitle {
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+.card-title {
+  font-weight: 400;
+  font-size: 18px;
+  margin: 0;
+}
+
+.card-title h4 {
+  display: inline-block;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.card-title p {
+  font-family: 'Roboto', sans-serif;
+  margin-bottom: 12px;
+}
+
+.card-header-right-icon {
+  display: inline-block;
+  float: right;
+}
+
+.card-header-right-icon li {
+  float: right;
+  padding-left: 14px;
+  color: #868e96;
+  cursor: pointer;
+  vertical-align: middle;
+  transition: all 0.5s ease-in-out;
+  display: inline-block;
+}
+
+.h2{
+  color: #020b43 !important;
+  font-weight: 500 !important;
+  margin-top: 0;
+  margin-bottom: .5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+  .card-title{
+
+    color: black!important;
+
+  }
+  .btn-primary{
+    background-color: #010A43 !important;
+    border-color: #010A43 !important;
+  }
+  .btn-primary:hover{
+    background-color: #75BDE0 !important ;
+    border-color: #75BDE0  !important;
+  }
+  .btn-danger{
+    background-color:	#dc3545 !important;
+    border-color: #dc3545  !important;
+  }
+  .btn-danger:hover{
+    background-color: #f89b9b !important;
+    border-color: #f89b9b !important ;
+  }
+  .card-text{
+    color: black!important;
+
+  }
+  .card{
+    border-radius: 10px;
+    margin-top: 2%;
+  }
+  .card-img-top{
+    width: 85%;
+    text-align:center;
+    
+  }
+  #tittle-pr{
+    margin-top: 5%;
+  }
+  .btn-danger{
+    background-color: #75bde0;
+    border-color:#75bde0;
+  }
+
+  .btn-danger:hover{
+ background-color: #f8d49b;
+ border-color: #f8d49b;
+  }
+
+
+.botonAgregar i{
+  color: #fff;
+  font-size: large;
+  margin: 0 10px;
+
+}
+
+.btn-info {
+  background-color: #f8d49b;
+  border-color: #f8d49b;
+  color: #000;
+}
+
+
+.btn-info:hover {
+  background: #f8d49b;
+  border-color: #f8d49b;
+  color: #000;
+  box-shadow: none;
+}
+.btn-secondary{
+  background-color: #f89b9b;
+  border-color: #f89b9b;
+  color: #000;
+  
+}
+.btn-secondary:hover{
+  background: #f89b9b;
+  border-color: #f89b9b;
+  color: #000;
+  box-shadow: none;
+
+}
+
+.modal-content {
+  border-radius: 15px;
+}
+.modifica{
+  background-color: #f8d49b ;
+}
+
+
+.cambiarcolor td{
+  background: #fff;
+  
+}
+
+.textproductos{
+  float: right;
+}
+.icon-name {
+  color: #75BDE0;
 }

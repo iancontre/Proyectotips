@@ -70,7 +70,7 @@ require_once("../../Controllers/admin/mostrarFotoAdmin.php");
                     <li><a class="sidebar-sub-toggle"><i class="ti-shopping-cart"></i> Administrar Productos <span
                                 class="sidebar-collapse-icon ti-angle-down"></span></a>
                         <ul>
-                            <li><a href="ui-typography.html">Productos Disponibles</a></li>
+                            <li><a href="verProductos.php">Productos Disponibles</a></li>
                         </ul>
             
             </div>

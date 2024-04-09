@@ -144,7 +144,7 @@ require_once("../../Controllers/admin/mostrarProductos.php");
                                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                                         </div>
                                                         <div class="modal-body">
-                                                        <form action="../../Controllers/admin/agregarProducto.php" method="POST" enctype="multipart/form-data">
+                                                        <form action="../../Controllers/admin/agregarProductos.php" method="POST" enctype="multipart/form-data">
                                                 <div class="row">
                                                     
                                               

@@ -22,7 +22,7 @@ function cargarProductos()
             <td>'.$f['pro_marca'].'</td>
             <td>'.$f['pro_descrip'].'</td>
             <td>'.$f['precio'].'</td>
-            <td>'.$f['cod_equip'].'</td>
+            <td>'.$f['nom_equip'].'</td>
             <td> <img src="' . $f['foto'] .  '" alt="Foto user" width="80px" heigth="80px"> </td>        
             <td> <a href="cargarProductosEdit.php?codigo='.$f['cod_pro'].'" class="btn btn-primary"><i class="bi bi-pencil-square"></i>MODIFICAR</td>
             <td> <a class="btn btn-danger" href="../../Controllers/admin/eliminarProducto.php?cod_pro='.$f['cod_pro'].'"><i class="bi bi-trash3"></i>ELIMINAR</td>
@@ -70,12 +70,12 @@ function cargarProductosEdit(){
             <input type="text"  name="precio" value="'.$f['precio'].'" class="form-control inputRegistro"  id="precio"  placeholder="Precio"/> 
             </div>
             <div class="form-group col-md-6">
-            <select class="form-select" value="'.$f['cod_equip'].'" name="codigoEquipo" id="codigoEquipot">
-            <option value="1034">Celular</option>
-            <option value="1035">Computador</option>
-            <option value="1036">Portatil</option>
-            <option value="1037">Tableta</option>
-            <option value="1038">Televisor</option>
+            <select class="form-select"  name="codigoEquipo" id="codigoEquipot">
+            <option value="1034"' . (($f['cod_equip'] == "1034") ? " selected" : "") . '>Celular</option>
+            <option value="1035"' . (($f['cod_equip'] == "1035") ? " selected" : "") . '>Computador</option>
+            <option value="1036"' . (($f['cod_equip'] == "1036") ? " selected" : "") . '>Portatil</option>
+            <option value="1037"' . (($f['cod_equip'] == "1037") ? " selected" : "") . '>Tableta</option>
+            <option value="1038"' . (($f['cod_equip'] == "1038") ? " selected" : "") . '>Televisor</option>
         </select>
         </div>
             

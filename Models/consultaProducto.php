@@ -35,7 +35,10 @@ class ConsultaProducto{
         $productos = array(); 
         $objConexion = new Conexion();
         $conexion = $objConexion->get_conexion();
-        $cargar = "SELECT * FROM producto";
+        $cargar = "SELECT p.*, e.nom_equip 
+        FROM producto p
+        INNER JOIN equipos e ON p.cod_equip = e.cod_equip";
+
         $result = $conexion->prepare($cargar);
         $result->execute();
 
@@ -73,7 +76,7 @@ class ConsultaProducto{
       }
 
       public function consultarProductosModif($codigo){
-        $f = array(); // Inicializamos $f como un array vacío
+        $f = array();
         $objConexion = new Conexion();
         $conexion = $objConexion->get_conexion();
       

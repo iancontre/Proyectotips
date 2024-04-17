@@ -1862,7 +1862,7 @@ a:hover {
 }
 .overlay {
   background-color: rgba(0, 0, 0, 0.548);
-  height: auto;
+  height: 200%;
 }
 
 .card-3 {
@@ -1949,3 +1949,81 @@ a:hover {
     margin: 2% auto; 
   }
 }
+/* Formulario Consejería (input y diseño container formulario) */
+
+#form-text{
+  text-align: center;
+ 
+}
+
+#sub-textF{
+  text-align: center;
+}
+#btnform{
+text-align: center;
+}
+
+
+
+label {
+  display: inline-block;
+  margin-top: 10px;
+  width: 25%;
+  
+}
+input[type="text"], input[type="email"], input[type="number"] {
+  height: 55px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  align-items: center;
+}
+input[type="password"] {
+  width: 80%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  align-items: center;
+}
+input[type="submit"] {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #f8d49b;
+  color: white;
+  border: none;
+  border-radius: 16px;
+  cursor: pointer;
+  width: 50%;
+  height: 52px;
+
+}
+input[type="submit"]:hover {
+  background-color: #75bde0;
+  color: white;
+  font-family: 'Abel', sans-serif;
+  
+}
+
+textarea[type="text"]{
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  align-items: center;
+}
+
+ .form-select{
+  height: 55px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  align-items: center;
+}
+#btncenter{
+  align-items: center;
+  text-align: center;
+}
+/*Carousel home*/
+#text-sub{
+  color: white;
+}
+

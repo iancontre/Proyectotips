@@ -1,8 +1,8 @@
 <?php
-   require_once('../../Models/conexion_db.php');
-   require_once('../../Models/consultaUser.php');
-   require_once('../../Controllers/mostraPerfil.php');
-   require_once('../../Controllers/mostrarFoto.php');
+    require_once('../../Models/conexion_db.php');
+    require_once('../../Models/consultaUser.php');
+    require_once('../../Controllers/mostrarPerfil.php');
+    require_once('../../Controllers/mostrarFoto.php');
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +44,7 @@
   <link rel="stylesheet" href="../plugins/slick/slick.css">
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="../css/style.css">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
@@ -72,7 +73,7 @@
           <ul class="navbar-nav ml-auto text-center">
             
             <li class="nav-item ">
-              <a class="nav-link" href="#home" style="font-weight: bold;" >Consejería</a>
+            <a class="nav-link" href="manualConsejo.php" style="font-weight: bold;" >Consejería</a>
             </li>
             <li class="nav-item ">
               <a class="nav-link" href="#about" style="font-weight: bold;">Historial</a>
@@ -119,61 +120,59 @@
       <div class="col-lg-6">
 
         <div id="img-conse1">
-          <img src="../images/conse2.png" alt="">
+          <img src="../images/conse2.png" class="img-fluid" alt="">
         </div>
 
       </div>
+      
       <div class="col-lg-6" id="form-container">
-        <form action="../../Controllers/registroUser.php" method="POST">
+        <form action="../../Controllers/registrarConse.php" method="POST">
     
           <br>
-          <h1>Registrar Nueva cuenta</h1>
-          <p>Ingresa los datos requeridos</p>
+          <h2 id="form-text">Formulario Consejería</h2>
+          <p id="sub-textF">¡Aquí podrás recibir el mejor consejo de compra!</p>
 
-
-         <div class="form-group col-md-6">
-                      <label>Documento:</label>
-                      <input type="number" name="documento" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group ">
-                      <label>Nombre:</label>
-                      <input type="text" name="nombre" class="form-control" placeholder="">
+          <div class="container"> 
+            <div class="row">
+                    <div class="form-group col-md-6">
+                      
+                      <input type="text" name="presupuesto" class="form-control" placeholder="Presupuesto">
                     </div>
                     <div class="form-group col-md-6">
-                      <label>Teléfono:</label>
-                      <input type="number" name="telefono" class="form-control" placeholder="">
+                      <select class="form-select"  name="tipoEquip" id="codigoEquipo">
+                        <option selected> Tipo Equipo</option>
+                        <option value="1034">Celular</option>
+                        <option value="1035">Computador</option>
+                        <option value="1036">Portatil</option>
+                        <option value="1037">Tableta</option>
+                        <option value="1038">Televisor</option>
+                    </select>
                     </div>
                     <div class="form-group col-md-6">
-                      <label>Email:</label>
-                      <input type="email" name="correo" class="form-control" placeholder="">
+                     
+                      <input type="text" name="profesion" class="form-control" placeholder="Profesion">
                     </div>
-                    <div class="form-group col-md-6">
-                      <label>Rol: (Seleccione una opción)</label>
-                      <select name="id_rol" id="" class="form-control">
-                        <option value="2">Vendedor</option>
-                        <option value="1">Administrador</option>
-                      </select>
+                    
+                   
+                    <div class="form-group col-md-12">
+                      
+                      <textarea type="text"  name="descripcion" class="form-control inputRegistro" id="descripcion" placeholder="Descripción" cols="10" rows="4"></textarea>
                     </div>
-                    <div class="form-group col-md-6">
-                      <label>Contraseña:</label>
-                      <input type="password" name="contrasena" class="form-control" placeholder="">
-                    </div>
-                    <div class="form-group col-md-6">
-                      <label>Confirmar Contraseña:</label>
-                      <input type="password" name="ccontrasena" class="form-control" placeholder="">
-                    </div>
-                     <div class="form-group col-md-6">
-                       <label>Inserta una foto:</label>
-                      <input type="file" class="form-control" name="foto">
-                    </div>
-      <br>
+                    
+                   <br>
       
-      <br>
-          <input type="submit" value="Registrarse">
-          <br>
-          <br>
+                  <br>
+                  <br>
+                  <div class="register-link m-t-15 text-center">
+                <input type="submit" id="btnform" value="Realizar Consejería">
+                <br>
+                <br>
+               
+              </div>
+         
+          
           <div class="register-link m-t-15 text-center">
-            <p>¿Ya tienes una cuenta? <a href="iniciarUser.html"> Iniciar Sesión</a></p>
+            
           </div>
           <br>
           
@@ -182,6 +181,9 @@
       </div>
     </div>
   </div>
+</div>
+</div>
+
 
 
 </section>

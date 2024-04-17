@@ -40,7 +40,7 @@ class ConsultaProducto{
         INNER JOIN equipos e ON p.cod_equip = e.cod_equip";
 
         $result = $conexion->prepare($cargar);
-        $result->execute();
+        
 
         $result->execute();
 

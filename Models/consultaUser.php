@@ -235,7 +235,27 @@ public function modificarFoto($documento, $rutaFoto){
 
 
 }
+public function registrarForm($presupuesto,$descripcion,$profesion,$tipoEquip){
 
+    $objConexion = new Conexion();
+    $conexion = $objConexion -> get_conexion();
+    $registrarF= "INSERT INTO formulario( `presupuesto`, `descripcion`, `profesion`, `tipoEquip`) 
+    VALUES (:presupuesto,:descripcion,:profesion,:tipoEquip)";
+    $result= $conexion ->prepare($registrarF);
+    $result->bindParam(':presupuesto',$presupuesto);
+    $result->bindParam(':descripcion',$descripcion);
+    $result->bindParam(':profesion', $profesion);
+    $result->bindParam(':tipoEquip',$tipoEquip);
+    
+    if ($result-> execute()) {
+        echo '<script>alert("¡Felicidades! has termiando tu consejo tecnológico ");</script>';
+        echo '<script>location.href="../Views/users/resultadoConse.php"</script>';
+    }else {
+        echo '<script>alert(" ¡Lo lamentamos! no hemos podido brindarte ningún consejo, vuelve a intentarlo");</script>';
+        echo '<script>location.href="../Views/users/formConse.php"</script>';
+    }
+
+}
 
 }
  

@@ -2,6 +2,8 @@
 require_once("../Models/conexion_db.php");
 require_once("../Models/consultaUser.php");
 
+
+
 $presupuesto=$_POST['presupuesto']; 
 $descripcion= $_POST['descripcion'];
 $profesion=$_POST['profesion'];

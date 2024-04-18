@@ -236,16 +236,23 @@ public function modificarFoto($documento, $rutaFoto){
 
 }
 public function registrarForm($presupuesto,$descripcion,$profesion,$tipoEquip){
-
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }else{
+        echo "Error: El documento del usuario no está definido en la sesión.";
+    }
+    
+    $documento = $_SESSION['documento'];
     $objConexion = new Conexion();
     $conexion = $objConexion -> get_conexion();
-    $registrarF= "INSERT INTO formulario( `presupuesto`, `descripcion`, `profesion`, `tipoEquip`) 
-    VALUES (:presupuesto,:descripcion,:profesion,:tipoEquip)";
+    $registrarF= "INSERT INTO formulario( `presupuesto`, `descripcion`, `profesion`, `tipoEquip`, `documento`) 
+    VALUES (:presupuesto,:descripcion,:profesion,:tipoEquip, :documento)";
     $result= $conexion ->prepare($registrarF);
     $result->bindParam(':presupuesto',$presupuesto);
     $result->bindParam(':descripcion',$descripcion);
     $result->bindParam(':profesion', $profesion);
     $result->bindParam(':tipoEquip',$tipoEquip);
+    $result->bindParam(':documento', $documento);
     
     if ($result-> execute()) {
         echo '<script>alert("¡Felicidades! has termiando tu consejo tecnológico ");</script>';
@@ -254,6 +261,30 @@ public function registrarForm($presupuesto,$descripcion,$profesion,$tipoEquip){
         echo '<script>alert(" ¡Lo lamentamos! no hemos podido brindarte ningún consejo, vuelve a intentarlo");</script>';
         echo '<script>location.href="../Views/users/formConse.php"</script>';
     }
+
+}
+public function obtenerConsejo($presupuesto,$tipoEquip, $descripción, $precio,$foto ){
+    $f=null;
+    $objConexion = new Conexion();
+    $conexion=$objConexion->get_conexion();
+    $consultarconse="SELECT nombre, precio, foto, descripcion FROM producto
+    WHERE precio <= :presupuesto 
+    AND cod_equip = :tipoEquip 
+    AND pro_descrip LIKE :descripcion
+    LIMIT 3";
+    $result= $conexion->prepare($consultarconse);
+    $result->bindParam(':presupuesto', $presupuesto);
+    $result->bindParam(':tipoEquip', $tipoEquip);
+    $descripcion = '%' . $descripcion . '%'; 
+    $result->bindParam(':descripcion', $descripcion);
+    $result->bindParam(':precio', $precio);
+    $result->bindParam(':foto', $foto);
+    $result->execute();
+
+    while ($resultado = $result->fetch()){   
+        $f[] = $resultado;
+    }
+    return $f;
 
 }
 

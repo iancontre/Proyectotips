@@ -1,21 +1,25 @@
 <?php
 
-public function mostarProductosRecomendados(){
+
+function mostrarConsejos() {
+    
+    $presupuesto = $_POST['presupuesto']; 
+    $descripcion = $_POST['descripcion'];
+    $tipoEquip = $_POST['tipoEquip'];
     $objconsultas = new ConsultaUser();
-    $result = $objconsultas-> obtenerConsejo($presupuesto,$tipoEquip, $descripción, $precio,$foto );
-    if (isset($result) && !empty($result)) {
+    $result = $objconsultas->obtenerConsejos($presupuesto, $descripcion, $tipoEquip);
+    if (!empty($result)) {
         foreach ($result as $f) {
-            echo '
-            <div class="producto">
-                <p>Descripción: ' . $f['descripcion'] . '</p>
-                <p>Precio: ' . $f['precio'] . '</p>
-                <p>Tipo de equipo: ' . $f['cod_equip'] . '</p>
-                <p>Presupuesto: ' . $f['presupuesto'] . '</p>
-                <img src="' . $f['foto'] . '" alt="Foto del producto">
-            </div>';
+            echo '<div>';
+            echo '<h2>' . $f['referencia'] . '</h2>';
+            echo '<p>' . $f['descripcion_producto'] . '</p>';
+            echo '<p>Precio: ' . $f['precio'] . '</p>';
+            echo '<img src="' . $f['foto_producto'] . '" alt="Foto del Producto">';
+            echo '<a href="' . $f['pagina_web_producto'] . '">Ver Producto</a>';
+            echo '</div>';
         }
     } else {
-        echo 'No se encontraron productos que coincidan con los criterios de búsqueda.';
+        echo '<p>No se encontraron consejos de compra.</p>';
     }
 }
 

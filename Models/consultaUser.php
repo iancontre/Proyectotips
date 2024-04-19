@@ -263,29 +263,36 @@ public function registrarForm($presupuesto,$descripcion,$profesion,$tipoEquip){
     }
 
 }
-public function obtenerConsejo($presupuesto,$tipoEquip, $descripción, $precio,$foto ){
-    $f=null;
+public function obtenerConsejos($presupuesto, $descripcion, $tipoEquip) {
     $objConexion = new Conexion();
-    $conexion=$objConexion->get_conexion();
-    $consultarconse="SELECT nombre, precio, foto, descripcion FROM producto
-    WHERE precio <= :presupuesto 
-    AND cod_equip = :tipoEquip 
-    AND pro_descrip LIKE :descripcion
-    LIMIT 3";
-    $result= $conexion->prepare($consultarconse);
+    $conexion = $objConexion->get_conexion();
+    
+    $consulta = "SELECT 
+                    p.pro_referen AS referencia,
+                    p.pro_descrip AS descripcion_producto,
+                    p.precio AS precio,
+                    p.foto AS foto_producto,
+                    p.pagina_web AS pagina_web_producto
+                FROM 
+                    productos p
+                JOIN 
+                    formulario f ON p.cod_equip = f.tipoEquip
+                WHERE 
+                    p.precio <= :presupuesto 
+                    AND f.presupuesto = :presupuesto 
+                    AND f.tipoEquip = :tipoEquip 
+                    AND (p.pro_descrip LIKE CONCAT('%', :descripcion, '%') OR p.pro_referen LIKE CONCAT('%', :descripcion, '%'))
+                LIMIT 3";
+
+    $result = $conexion->prepare($consulta);
     $result->bindParam(':presupuesto', $presupuesto);
-    $result->bindParam(':tipoEquip', $tipoEquip);
-    $descripcion = '%' . $descripcion . '%'; 
     $result->bindParam(':descripcion', $descripcion);
-    $result->bindParam(':precio', $precio);
-    $result->bindParam(':foto', $foto);
+    $result->bindParam(':tipoEquip', $tipoEquip);
     $result->execute();
 
-    while ($resultado = $result->fetch()){   
-        $f[] = $resultado;
-    }
-    return $f;
+    $resultados = $result->fetchAll(PDO::FETCH_ASSOC);
 
+    return $resultados;
 }
 
 }
